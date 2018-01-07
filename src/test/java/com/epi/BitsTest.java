@@ -10,15 +10,38 @@ public class BitsTest {
     private Bits bits;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         bits = new Bits();
     }
 
     @Test
-    public void testParity() {
-        short expected = 1;
-        short actual = bits.parity(7);
-        Assert.assertTrue(Short.compare(actual, expected) == 0);
+    public void numOfBits() throws Exception {
+        short expected = 3;
+        short actual = bits.numOfBits(7);
+        Assert.assertTrue(actual == expected);
     }
 
+    @Test
+    public void numOfBitsBF() {
+        short expected = 4;
+        short actual = bits.numOfBitsBF(15);
+        Assert.assertTrue(actual == expected);
+    }
+
+    @Test
+    public void parityBF() {
+        short expected = 1;
+        short actual = bits.parity(7);
+        Assert.assertTrue(actual == expected);
+        expected = 0;
+        actual = bits.parityBF(10);
+        Assert.assertTrue(actual == expected);
+    }
+
+    @Test
+    public void parity() {
+        short expected = 1;
+        short actual = bits.parity(7);
+        Assert.assertTrue(actual == expected);
+    }
 }
