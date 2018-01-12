@@ -37,4 +37,14 @@ public class Bits {
         }
         return parity;
     }
+
+    // 4.02
+    public long swapBits(long n, int i, int j) {
+        // check if bits are different equal
+        if ((1 & (n >>> i)) != (1 & (n >>> j))) {
+            long mask = (1L << i) | (1L << j);
+            n ^= mask;
+        }
+        return n;
+    }
 }

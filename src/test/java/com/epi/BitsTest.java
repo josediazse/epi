@@ -44,4 +44,11 @@ public class BitsTest {
         short actual = bits.parity(7);
         Assert.assertTrue(actual == expected);
     }
+
+    @Test
+    public void swapBits() {
+        long expected = 3;
+        long actual = bits.swapBits(10, 3, 0);
+        Assert.assertTrue(actual == expected);
+    }
 }
