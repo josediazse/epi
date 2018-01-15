@@ -46,6 +46,16 @@ public class BitsTest {
     }
 
     @Test
+    public void parityCached() throws Exception {
+        short expected = 1;
+        short actual = bits.parityCached(7);
+        Assert.assertTrue(actual == expected);
+        expected = 0;
+        actual = bits.parityBF(10);
+        Assert.assertTrue(actual == expected);
+    }
+
+    @Test
     public void swapBits() {
         long expected = 3;
         long actual = bits.swapBits(10, 3, 0);

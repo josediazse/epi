@@ -39,10 +39,23 @@ public class Bits {
     }
 
     // Use a cache of pre-computed results
-    public short parityCached(int n) {
-        short parity = 0;
+    public short parityCached(long n) {
+        final int BIT_MASK = 0xffff;
+        final int MASK_SIZE = 16;
+        int [] preComputedResults = getPreCompuntedParities();
+        return (short) (preComputedResults[(int) ((n >>> (3 * MASK_SIZE)) & BIT_MASK)] ^
+                        preComputedResults[(int) ((n >>> (2 * MASK_SIZE)) & BIT_MASK)] ^
+                        preComputedResults[(int) ((n >>> (MASK_SIZE)) & BIT_MASK)] ^
+                        preComputedResults[(int) (n & BIT_MASK)]);
+    }
 
-        return parity;
+    private int[] getPreCompuntedParities() {
+        int limit = (int) Math.pow(2, 16);
+        int[] result = new int[limit];
+        for(int i = 0; i < limit; i++) {
+            result[i] = parity(i);
+        }
+        return result;
     }
 
     // 4.02
