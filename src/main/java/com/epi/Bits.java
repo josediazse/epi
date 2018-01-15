@@ -20,7 +20,7 @@ public class Bits {
     }
 
     // 4.01
-    public short parityBF(int n) {
+    public short parityBF(long n) {
         short parity = 0;
         while (n != 0) {
             parity ^= (n & 1);
@@ -29,12 +29,19 @@ public class Bits {
         return parity;
     }
 
-    public short parity(int n) {
+    public short parity(long n) {
         short parity = 0;
         while (n != 0) {
             parity ^= 1;
             n &= (n - 1);
         }
+        return parity;
+    }
+
+    // Use a cache of pre-computed results
+    public short parityCached(int n) {
+        short parity = 0;
+
         return parity;
     }
 
