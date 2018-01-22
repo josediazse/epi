@@ -75,4 +75,15 @@ public class Bits {
         }
         return n;
     }
+
+    // 4.8
+    public long reverseDigitsBF(int x) {
+        long result = 0;
+        while (x > 9) {
+            int mod = x % 10;
+            result = (result * 10) + (mod * 10);
+            x /= 10;
+        }
+        return result + x;
+    }
 }
