@@ -86,4 +86,14 @@ public class Bits {
         }
         return result + x;
     }
+
+    public long reverseDigits(int x) {
+        long result = 0;
+        long xRemaining = Math.abs(x);
+        while (xRemaining != 0) {
+            result = (result * 10) + (xRemaining % 10);
+            xRemaining /= 10;
+        }
+        return x < 0 ? -result: result;
+    }
 }

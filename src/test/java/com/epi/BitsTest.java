@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class BitsTest {
     private Bits bits;
 
@@ -76,6 +74,16 @@ public class BitsTest {
     public void reverseDigitsBF(){
         long expected = 345;
         long actual = bits.reverseDigitsBF(543);
+        Assert.assertTrue(actual == expected);
+    }
+
+    @Test
+    public void reverseDigits(){
+        long expected = 345;
+        long actual = bits.reverseDigits(543);
+        Assert.assertTrue(actual == expected);
+        expected = -341;
+        actual = bits.reverseDigits(-143);
         Assert.assertTrue(actual == expected);
     }
 }
