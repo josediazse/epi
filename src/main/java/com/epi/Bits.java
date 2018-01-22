@@ -42,14 +42,14 @@ public class Bits {
     public short parityCached(long n) {
         final int BIT_MASK = 0xffff;
         final int MASK_SIZE = 16;
-        int [] preComputedResults = getPreCompuntedParities();
+        int [] preComputedResults = getPreComputedParities();
         return (short) (preComputedResults[(int) ((n >>> (3 * MASK_SIZE)) & BIT_MASK)] ^
                         preComputedResults[(int) ((n >>> (2 * MASK_SIZE)) & BIT_MASK)] ^
                         preComputedResults[(int) ((n >>> (MASK_SIZE)) & BIT_MASK)] ^
                         preComputedResults[(int) (n & BIT_MASK)]);
     }
 
-    private int[] getPreCompuntedParities() {
+    private int[] getPreComputedParities() {
         int limit = (int) Math.pow(2, 16);
         int[] result = new int[limit];
         for(int i = 0; i < limit; i++) {
