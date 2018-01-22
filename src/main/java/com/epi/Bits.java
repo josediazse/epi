@@ -67,4 +67,12 @@ public class Bits {
         }
         return n;
     }
+
+    // 4.03
+    public long reverseBitsBF(long n) {
+        for(int i = 0, j = Long.SIZE - 1; i < 32; i++, j--) {
+            n = swapBits(n, i, j);
+        }
+        return n;
+    }
 }
