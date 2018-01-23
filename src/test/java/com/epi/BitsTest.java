@@ -86,4 +86,12 @@ public class BitsTest {
         actual = bits.reverseDigits(-143);
         Assert.assertTrue(actual == expected);
     }
+
+    @Test
+    public void isNumberPalindrome() {
+        boolean expected = true;
+        boolean actual = bits.isNumberPalindrome(3234323);
+        System.out.println(actual);
+        Assert.assertTrue(actual == expected);
+    }
 }

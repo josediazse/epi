@@ -42,17 +42,17 @@ public class Bits {
     public short parityCached(long n) {
         final int BIT_MASK = 0xffff;
         final int MASK_SIZE = 16;
-        int [] preComputedResults = getPreComputedParities();
+        int[] preComputedResults = getPreComputedParities();
         return (short) (preComputedResults[(int) ((n >>> (3 * MASK_SIZE)) & BIT_MASK)] ^
-                        preComputedResults[(int) ((n >>> (2 * MASK_SIZE)) & BIT_MASK)] ^
-                        preComputedResults[(int) ((n >>> (MASK_SIZE)) & BIT_MASK)] ^
-                        preComputedResults[(int) (n & BIT_MASK)]);
+                preComputedResults[(int) ((n >>> (2 * MASK_SIZE)) & BIT_MASK)] ^
+                preComputedResults[(int) ((n >>> (MASK_SIZE)) & BIT_MASK)] ^
+                preComputedResults[(int) (n & BIT_MASK)]);
     }
 
     private int[] getPreComputedParities() {
         int limit = (int) Math.pow(2, 16);
         int[] result = new int[limit];
-        for(int i = 0; i < limit; i++) {
+        for (int i = 0; i < limit; i++) {
             result[i] = parity(i);
         }
         return result;
@@ -70,7 +70,7 @@ public class Bits {
 
     // 4.03
     public long reverseBitsBF(long n) {
-        for(int i = 0, j = Long.SIZE - 1; i < 32; i++, j--) {
+        for (int i = 0, j = Long.SIZE - 1; i < 32; i++, j--) {
             n = swapBits(n, i, j);
         }
         return n;
@@ -94,6 +94,25 @@ public class Bits {
             result = (result * 10) + (xRemaining % 10);
             xRemaining /= 10;
         }
-        return x < 0 ? -result: result;
+        return x < 0 ? -result : result;
+    }
+
+
+    // 4.9
+    public boolean isNumberPalindrome(int x) {
+        if (x <= 0) {
+            return x == 0;
+        }
+        int numOfDigits = (int) Math.log10(x) + 1;
+        int mask = (int) Math.pow(10, numOfDigits -1);
+        for (int i = 0; i < (numOfDigits / 2); i++) {
+            if ((x / mask) != x % 10) {
+                return false;
+            }
+            x %= mask;
+            x /= 10;
+            mask /= 100;
+        }
+        return true;
     }
 }
