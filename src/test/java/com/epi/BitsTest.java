@@ -74,9 +74,21 @@ public class BitsTest {
     public void sumBF() {
         long expected = 9;
         long actual = bits.sumBF(4, 5);
+        Assert.assertTrue(actual == expected);
+        expected = 55;
+        actual = bits.sumBF(33, 22);
+        Assert.assertTrue(actual == expected);
+    }
+
+    @Test
+    public void sum() {
+        long expected = 9;
+        long actual = bits.sum(4, 5);
         System.out.println(actual);
         Assert.assertTrue(actual == expected);
     }
+
+
 
     @Test
     public void reverseDigitsBF(){

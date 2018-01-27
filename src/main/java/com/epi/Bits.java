@@ -94,7 +94,22 @@ public class Bits {
         return result | (carry << count);
     }
 
+    public long sum(int a, int b) {
+        long sum = 0, carryin = 0, k = 1, tempA = a, tempB = b;
+        while (tempA != 0 || tempB != 0) {
+            long ak = a & k, bk = b & k;
+            long carryout = (ak & bk) | (ak & carryin) | (bk & carryin);
+            sum |= (ak ^ bk ^ carryin);
+            carryin = carryout << 1;
+            k <<= 1;
+            tempA >>>=1;
+            tempB >>>=1;
+        }
+        return sum | carryin;
+    }
+
     // 4.8
+
     public long reverseDigitsBF(int x) {
         long result = 0;
         while (x > 9) {
@@ -115,8 +130,8 @@ public class Bits {
         return x < 0 ? -result : result;
     }
 
-
     // 4.9
+
     public boolean isNumberPalindrome(int x) {
         if (x <= 0) {
             return x == 0;
