@@ -81,6 +81,13 @@ public class BitsTest {
     }
 
     @Test
+    public void closestIntSameBitCount() {
+        long expected = 5;
+        long actual = bits.closestIntSameBitCount(6);
+        Assert.assertTrue(actual == expected);
+    }
+
+    @Test
     public void sumBF() {
         long expected = 9;
         long actual = bits.sumBF(4, 5);

@@ -86,6 +86,18 @@ public class Bits {
         return n;
     }
 
+    // 4.04
+    public long closestIntSameBitCount(long x) {
+        final long LIMIT = Long.SIZE - 2;
+        for(int i = 0; i < LIMIT; i++) {
+            if ((1L & (x >>> i)) != (1L & (x >>> (i + 1)))) {
+                x ^= (1L << i) | (1L << (i + 1));
+                return x;
+            }
+        }
+        throw new IllegalArgumentException("Either all bits are zero or one");
+    }
+
     // 4.05
     public long sumBF(long a, long b) {
         long result = 0, carry = 0, temp;
