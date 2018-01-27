@@ -76,6 +76,24 @@ public class Bits {
         return n;
     }
 
+    // 4.05
+    public long sumBF(long a, long b) {
+        long result = 0, carry = 0, temp;
+        long tempA, tempB;
+        short count = 0;
+        while (a != 0 || b != 0) {
+            tempA = a & 1;
+            tempB = b & 1;
+            temp = tempA ^ tempB ^ carry;
+            result |= (temp << count);
+            carry = (tempA & tempB) | (carry & tempA) | (carry & tempB);
+            a >>>= 1;
+            b >>>= 1;
+            count++;
+        }
+        return result | (carry << count);
+    }
+
     // 4.8
     public long reverseDigitsBF(int x) {
         long result = 0;
@@ -104,7 +122,7 @@ public class Bits {
             return x == 0;
         }
         int numOfDigits = (int) Math.log10(x) + 1;
-        int mask = (int) Math.pow(10, numOfDigits -1);
+        int mask = (int) Math.pow(10, numOfDigits - 1);
         for (int i = 0; i < (numOfDigits / 2); i++) {
             if ((x / mask) != x % 10) {
                 return false;
