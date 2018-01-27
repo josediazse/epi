@@ -54,6 +54,16 @@ public class BitsTest {
     }
 
     @Test
+    public void parityByShifts() {
+        short expected = 1;
+        short actual = bits.parityByShifts(7);
+        Assert.assertTrue(actual == expected);
+        expected = 0;
+        actual = bits.parityBF(10);
+        Assert.assertTrue(actual == expected);
+    }
+
+    @Test
     public void swapBits() {
         long expected = 3;
         long actual = bits.swapBits(10, 3, 0);
@@ -89,16 +99,15 @@ public class BitsTest {
     }
 
 
-
     @Test
-    public void reverseDigitsBF(){
+    public void reverseDigitsBF() {
         long expected = 345;
         long actual = bits.reverseDigitsBF(543);
         Assert.assertTrue(actual == expected);
     }
 
     @Test
-    public void reverseDigits(){
+    public void reverseDigits() {
         long expected = 345;
         long actual = bits.reverseDigits(543);
         Assert.assertTrue(actual == expected);

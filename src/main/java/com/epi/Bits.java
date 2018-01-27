@@ -58,6 +58,16 @@ public class Bits {
         return result;
     }
 
+    public short parityByShifts(long x) {
+        x ^= x >>> 32;
+        x ^= x >>> 16;
+        x ^= x >>> 8;
+        x ^= x >>> 4;
+        x ^= x >>> 2;
+        x ^= x >>> 1;
+        return (short) (x & 0x1);
+    }
+
     // 4.02
     public long swapBits(long n, int i, int j) {
         // check if bits are different equal
@@ -109,7 +119,6 @@ public class Bits {
     }
 
     // 4.8
-
     public long reverseDigitsBF(int x) {
         long result = 0;
         while (x > 9) {
@@ -131,7 +140,6 @@ public class Bits {
     }
 
     // 4.9
-
     public boolean isNumberPalindrome(int x) {
         if (x <= 0) {
             return x == 0;
