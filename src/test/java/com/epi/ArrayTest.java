@@ -22,4 +22,15 @@ public class ArrayTest {
         array.evenOdd(input);
         Assert.assertTrue(expected.equals(input));
     }
+
+    @Test
+    public void quickSort() {
+        int[] expected = new int[]{1, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10};
+        int[] actual = new int[]{9, 10, 1, 3, 6, 7, 2, 6, 8, 1, 2, 5, 4};
+        array.quickSort(actual);
+        for (int i : actual) {
+            System.out.println(i);
+        }
+        Assert.assertTrue(Arrays.equals(expected, actual));
+    }
 }
