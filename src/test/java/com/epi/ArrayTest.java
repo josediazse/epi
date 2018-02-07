@@ -28,9 +28,14 @@ public class ArrayTest {
         int[] expected = new int[]{1, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10};
         int[] actual = new int[]{9, 10, 1, 3, 6, 7, 2, 6, 8, 1, 2, 5, 4};
         array.quickSort(actual);
-        for (int i : actual) {
-            System.out.println(i);
-        }
         Assert.assertTrue(Arrays.equals(expected, actual));
+    }
+
+    @Test
+    public void dutchNationalFlagPartitionBF() {
+        int[] expected = new int[]{2, 3, 4, 7, 7, 9, 10, 11};
+        int[] actual = new int[]{11,3,7,9,4,7,10,2};
+        array.dutchNationalFlagPartitionBF(actual, 2);
+        Assert.assertTrue(Arrays.equals(actual, expected));
     }
 }

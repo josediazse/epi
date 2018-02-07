@@ -52,4 +52,9 @@ public class Array {
         a[i] = a[j];
         a[j] = tmp;
     }
+
+    // 5.01
+    public void dutchNationalFlagPartitionBF(int[] array, int i) {
+
+    }
 }
