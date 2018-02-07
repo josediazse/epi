@@ -50,6 +50,6 @@ public class Array {
     private void swap(int[] a, int i, int j) {
         int tmp = a[i];
         a[i] = a[j];
-        a[j] = i;
+        a[j] = tmp;
     }
 }
