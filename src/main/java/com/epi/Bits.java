@@ -89,7 +89,7 @@ public class Bits {
     // 4.04
     public long closestIntSameBitCount(long x) {
         final long LIMIT = Long.SIZE - 2;
-        for(int i = 0; i < LIMIT; i++) {
+        for (int i = 0; i < LIMIT; i++) {
             if ((1L & (x >>> i)) != (1L & (x >>> (i + 1)))) {
                 x ^= (1L << i) | (1L << (i + 1));
                 return x;
@@ -124,8 +124,8 @@ public class Bits {
             sum |= (ak ^ bk ^ carryin);
             carryin = carryout << 1;
             k <<= 1;
-            tempA >>>=1;
-            tempB >>>=1;
+            tempA >>>= 1;
+            tempB >>>= 1;
         }
         return sum | carryin;
     }
