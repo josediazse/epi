@@ -16,14 +16,14 @@ public class BitsTest {
     public void numOfBits() throws Exception {
         short expected = 3;
         short actual = bits.numOfBits(7);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void numOfBitsBF() {
         short expected = 4;
         short actual = bits.numOfBitsBF(15);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -33,41 +33,41 @@ public class BitsTest {
         Assert.assertTrue(actual == expected);
         expected = 0;
         actual = bits.parityBF(10);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void parity() {
         short expected = 1;
         short actual = bits.parity(7);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void parityCached() {
         short expected = 1;
         short actual = bits.parityCached(7);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
         expected = 0;
         actual = bits.parityBF(10);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void parityByShifts() {
         short expected = 1;
         short actual = bits.parityByShifts(7);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
         expected = 0;
         actual = bits.parityBF(10);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void swapBits() {
         long expected = 3;
         long actual = bits.swapBits(10, 3, 0);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -77,32 +77,31 @@ public class BitsTest {
         System.out.println(expected);
         long actual = bits.reverseBitsBF(1);
         System.out.println(actual);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void closestIntSameBitCount() {
         long expected = 5;
         long actual = bits.closestIntSameBitCount(6);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void sumBF() {
         long expected = 9;
         long actual = bits.sumBF(4, 5);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
         expected = 55;
         actual = bits.sumBF(33, 22);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void sum() {
         long expected = 9;
         long actual = bits.sum(4, 5);
-        System.out.println(actual);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
 
@@ -110,24 +109,23 @@ public class BitsTest {
     public void reverseDigitsBF() {
         long expected = 345;
         long actual = bits.reverseDigitsBF(543);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void reverseDigits() {
         long expected = 345;
         long actual = bits.reverseDigits(543);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
         expected = -341;
         actual = bits.reverseDigits(-143);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void isNumberPalindrome() {
         boolean expected = true;
         boolean actual = bits.isNumberPalindrome(3234323);
-        System.out.println(actual);
-        Assert.assertTrue(actual == expected);
+        Assert.assertEquals(expected, actual);
     }
 }
