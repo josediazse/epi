@@ -64,4 +64,25 @@ public class Array {
                 swap(array, equal, more--);
         }
     }
+
+    public int[] plusOne(int[] array) {
+        for (int i = array.length - 1; i >= 0; i--) {
+            if (array[i] == 9 && i == 0) {
+                return getResizedArray(array);
+            }
+            if (array[i] == 9) {
+                array[i] = 0;
+                continue;
+            }
+            array[i]++;
+            break;
+        }
+        return array;
+    }
+
+    private int[] getResizedArray(int[] array) {
+        int[] newArray = new int[array.length + 1];
+        newArray[0] = 1;
+        return newArray;
+    }
 }

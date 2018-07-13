@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.Assert.assertArrayEquals;
+
 public class ArrayTest {
     private Array array;
 
@@ -28,7 +30,7 @@ public class ArrayTest {
         int[] expected = new int[]{1, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10};
         int[] actual = new int[]{9, 10, 1, 3, 6, 7, 2, 6, 8, 1, 2, 5, 4};
         array.quickSort(actual);
-        Assert.assertTrue(Arrays.equals(expected, actual));
+        assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -36,6 +38,21 @@ public class ArrayTest {
         int[] expected = new int[]{2, 3, 4, 7, 7, 10, 9, 11};
         int[] actual = new int[]{11, 3, 7, 9, 4, 7, 10, 2};
         array.dutchNationalFlagPartition(actual, 2);
-        Assert.assertTrue(Arrays.equals(actual, expected));
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void plusOne() {
+        int[] expected = new int[]{1, 3, 0};
+        int[] actual = array.plusOne(new int[]{1, 2, 9});
+        assertArrayEquals(expected, actual);
+
+        expected = new int[]{1,0};
+        actual = array.plusOne(new int[]{9});
+        assertArrayEquals(expected, actual);
+
+        expected = new int[]{4};
+        actual = array.plusOne(new int[]{3});
+        assertArrayEquals(expected, actual);
     }
 }
