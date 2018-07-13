@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class ArrayTest {
     private Array array;
@@ -47,12 +48,19 @@ public class ArrayTest {
         int[] actual = array.plusOne(new int[]{1, 2, 9});
         assertArrayEquals(expected, actual);
 
-        expected = new int[]{1,0};
+        expected = new int[]{1, 0};
         actual = array.plusOne(new int[]{9});
         assertArrayEquals(expected, actual);
 
         expected = new int[]{4};
         actual = array.plusOne(new int[]{3});
         assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void computeMaxProfit() {
+        final int expected = 30;
+        int actual = array.computeMaxProfit(new int[]{310, 315, 275, 295, 260, 270, 290, 230, 255, 250});
+        assertEquals(expected, actual);
     }
 }

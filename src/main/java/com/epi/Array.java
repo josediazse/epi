@@ -56,15 +56,16 @@ public class Array {
     public void dutchNationalFlagPartition(int[] array, int p) {
         int pivot = array[p], less = 0, more = array.length - 1, equal = 0;
         while (equal <= more) {
-            if(array[equal] == pivot)
+            if (array[equal] == pivot)
                 equal++;
-            else if(array[equal] < pivot)
+            else if (array[equal] < pivot)
                 swap(array, equal++, less++);
             else
                 swap(array, equal, more--);
         }
     }
 
+    // 5.02
     public int[] plusOne(int[] array) {
         for (int i = array.length - 1; i >= 0; i--) {
             if (array[i] == 9 && i == 0) {
@@ -84,5 +85,15 @@ public class Array {
         int[] newArray = new int[array.length + 1];
         newArray[0] = 1;
         return newArray;
+    }
+
+    // 5.06
+    public int computeMaxProfit(int[] prices) {
+        int min = Integer.MAX_VALUE, maxProfit = 0;
+        for (int price : prices) {
+            maxProfit = Math.max(maxProfit, price - min);
+            min = Math.min(min, price);
+        }
+        return maxProfit;
     }
 }
