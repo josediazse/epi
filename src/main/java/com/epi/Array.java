@@ -53,7 +53,15 @@ public class Array {
     }
 
     // 5.01
-    public void dutchNationalFlagPartitionBF(int[] array, int i) {
-
+    public void dutchNationalFlagPartition(int[] array, int p) {
+        int pivot = array[p], less = 0, more = array.length - 1, equal = 0;
+        while (equal <= more) {
+            if(array[equal] == pivot)
+                equal++;
+            else if(array[equal] < pivot)
+                swap(array, equal++, less++);
+            else
+                swap(array, equal, more--);
+        }
     }
 }

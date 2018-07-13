@@ -32,10 +32,10 @@ public class ArrayTest {
     }
 
     @Test
-    public void dutchNationalFlagPartitionBF() {
-        int[] expected = new int[]{2, 3, 4, 7, 7, 9, 10, 11};
+    public void dutchNationalFlagPartition() {
+        int[] expected = new int[]{2, 3, 4, 7, 7, 10, 9, 11};
         int[] actual = new int[]{11, 3, 7, 9, 4, 7, 10, 2};
-        array.dutchNationalFlagPartitionBF(actual, 2);
+        array.dutchNationalFlagPartition(actual, 2);
         Assert.assertTrue(Arrays.equals(actual, expected));
     }
 }
