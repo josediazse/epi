@@ -1,5 +1,6 @@
 package com.epi;
 
+import com.google.common.primitives.Ints;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -63,9 +64,9 @@ public class ArrayTest {
     }
 
     @Test
-    public void getSubset() throws Exception {
+    public void getSubset() {
         int[] nums = new int[]{2, 4, 8, 6, 9, 10};
         int[] actual = array.getSubset(nums, 2);
-        assertTrue(Arrays.asList(nums).containsAll(Arrays.asList(actual)));
+        assertTrue(Ints.asList(nums).containsAll(Ints.asList(actual)));
     }
 }
