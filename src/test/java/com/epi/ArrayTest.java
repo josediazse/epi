@@ -1,14 +1,12 @@
 package com.epi;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ArrayTest {
     private Array array;
@@ -23,7 +21,7 @@ public class ArrayTest {
         List<Integer> expected = Arrays.asList(8, 2, 4, 6, 15, 11, 13, 9, 1);
         List<Integer> input = Arrays.asList(1, 2, 4, 11, 15, 6, 8, 13, 9);
         array.evenOdd(input);
-        Assert.assertTrue(expected.equals(input));
+        assertTrue(expected.equals(input));
     }
 
     @Test
@@ -62,5 +60,12 @@ public class ArrayTest {
         final int expected = 30;
         int actual = array.computeMaxProfit(new int[]{310, 315, 275, 295, 260, 270, 290, 230, 255, 250});
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getSubset() throws Exception {
+        int[] nums = new int[]{2, 4, 8, 6, 9, 10};
+        int[] actual = array.getSubset(nums, 2);
+        assertTrue(Arrays.asList(nums).containsAll(Arrays.asList(actual)));
     }
 }

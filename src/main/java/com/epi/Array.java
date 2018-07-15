@@ -2,6 +2,7 @@ package com.epi;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Array {
     public void evenOdd(List<Integer> a) {
@@ -95,5 +96,15 @@ public class Array {
             min = Math.min(min, price);
         }
         return maxProfit;
+    }
+
+    // 5.12
+    public int[] getSubset(int [] nums, int size) {
+        Random rand = new Random();
+        int[] result = new int[size];
+        for (int i = 0; i < size; i++) {
+            result[i] = nums[rand.nextInt(nums.length)];
+        }
+        return result;
     }
 }
