@@ -14,9 +14,24 @@ public class StringsTest {
     }
 
     @Test
-    public void isPalindrome(){
+    public void isPalindrome() {
         boolean expected = true;
         boolean actual = strings.isPalindrome("hannah");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void intToString() {
+        String expected = "321";
+        String actual = strings.intToString(321);
+        assertEquals(expected, actual);
+
+        expected = "-321";
+        actual = strings.intToString(-321);
+        assertEquals(expected, actual);
+
+        expected = "0";
+        actual = strings.intToString(0);
         assertEquals(expected, actual);
     }
 
