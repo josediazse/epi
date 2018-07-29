@@ -35,4 +35,19 @@ public class StringsTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void stringToInt() {
+        int expected = 321;
+        int actual = strings.stringToInt("321");
+        assertEquals(expected, actual);
+
+        expected = -321;
+        actual = strings.stringToInt("-321");
+        assertEquals(expected, actual);
+
+        expected = 0;
+        actual = strings.stringToInt("0");
+        assertEquals(expected, actual);
+    }
+
 }
