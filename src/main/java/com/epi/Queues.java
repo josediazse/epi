@@ -2,20 +2,18 @@ package com.epi;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
 
-import static com.epi.BinaryTrees.*;
+import static com.epi.BinaryTrees.BinaryTreeNode;
 
 public class Queues {
     // 8.6
-    public List<List<Integer>> getBinaryTreeNodesIncreasingDepth(BinaryTreeNode<Integer> root) {
-        List<List<Integer>> result = new ArrayList<>();
-        Deque<BinaryTreeNode<Integer>> currDepth = new ArrayDeque<>();
+    public ArrayList<ArrayList<Integer>> getBinaryTreeNodesIncreasingDepth(BinaryTreeNode<Integer> root) {
+        var result = new ArrayList<ArrayList<Integer>>();
+        var currDepth = new ArrayDeque<BinaryTreeNode<Integer>>();
         currDepth.add(root);
         while (!currDepth.isEmpty()) {
-            Deque<BinaryTreeNode<Integer>> nextDepth = new ArrayDeque<>();
-            List<Integer> r = new ArrayList<>();
+            var nextDepth = new ArrayDeque<BinaryTreeNode<Integer>>();
+            var r = new ArrayList<Integer>();
             while (!currDepth.isEmpty()) {
                 BinaryTreeNode<Integer> node = currDepth.poll();
                 r.add(node.data);

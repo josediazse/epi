@@ -15,7 +15,7 @@ public class StacksTest {
 
     @Test
     public void stackWithMaxAPI() {
-        Stack<Integer> s = new Stack<>();
+        var s = new Stack<Integer>();
         s.push(10);
         s.push(80);
         s.push(2);
