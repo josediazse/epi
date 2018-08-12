@@ -17,7 +17,7 @@ public class BinaryTrees {
         }
     }
 
-    // 9.7
+    // 9.07
     public List<Integer> iterativeInOrder(BinaryTreeNode<Integer> root) {
         Objects.requireNonNull(root);
         List<Integer> result = new ArrayList<>();
@@ -36,7 +36,7 @@ public class BinaryTrees {
         return result;
     }
 
-    // 9.8
+    // 9.08
     public List<Integer> iterativePreOrder(BinaryTreeNode<Integer> root) {
         Objects.requireNonNull(root);
         var result = new ArrayList<Integer>();

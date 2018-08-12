@@ -48,7 +48,7 @@ public class Heaps {
         }
     }
 
-    // 10.1
+    // 10.01
     public List<Integer> mergeSortedLists(List<List<Integer>> sortedLists) {
         Objects.requireNonNull(sortedLists);
         var minHeap = new PriorityQueue<ArrayEntry>(sortedLists.size(), Comparator.comparing(a -> a.value));
