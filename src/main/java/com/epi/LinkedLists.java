@@ -11,6 +11,7 @@ public class LinkedLists {
         }
     }
 
+    // 7.01
     public ListNode<Integer> mergeTwoSortedLists(ListNode<Integer> L1, ListNode<Integer> L2) {
         ListNode<Integer> head = new ListNode<>(0, null);
         ListNode<Integer> current = head;
@@ -26,5 +27,17 @@ public class LinkedLists {
         }
         current.next = L1 != null ? L1 : L2;
         return head.next;
+    }
+
+    public ListNode<Integer> reverseLinkedList(ListNode<Integer> node) {
+        ListNode<Integer> prev = null, next = null;
+        ListNode<Integer> curr = node;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
     }
 }

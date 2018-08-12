@@ -27,7 +27,7 @@ public class Searching {
             if (t > A.get(M)) {
                 L = M + 1;
             } else {
-                if(t == A.get(M)) found = M;
+                if (t == A.get(M)) found = M;
                 U = M - 1;
             }
         }

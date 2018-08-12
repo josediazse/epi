@@ -1,10 +1,10 @@
 package com.epi;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import static com.epi.LinkedLists.ListNode;
+import static org.junit.Assert.assertTrue;
 
 public class LinkedListsTest {
     LinkedLists linkedLists;
@@ -20,7 +20,13 @@ public class LinkedListsTest {
         ListNode<Integer> L2 = getListFromElements(2, 4, 4, 7, 10, 12);
         ListNode<Integer> expected = getListFromElements(1, 2, 3, 4, 4, 5, 7, 8, 10, 12);
         ListNode<Integer> actual = linkedLists.mergeTwoSortedLists(L1, L2);
-        Assert.assertTrue("Lists are different", assertListEquals(expected, actual));
+        assertTrue("Lists are different", assertListEquals(expected, actual));
+    }
+
+    @Test
+    public void reverseLinkedList() {
+        ListNode<Integer> actual = linkedLists.reverseLinkedList(getListFromElements(4, 2, 6, 9));
+        assertTrue("Lists are different", assertListEquals(getListFromElements(9, 6, 2, 4), actual));
     }
 
     private boolean assertListEquals(ListNode<Integer> l1, ListNode<Integer> l2) {
