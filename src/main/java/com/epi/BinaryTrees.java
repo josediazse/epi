@@ -23,19 +23,13 @@ public class BinaryTrees {
         List<Integer> result = new ArrayList<>();
         var stack = new ArrayDeque<BinaryTreeNode<Integer>>();
         var curr = root;
-        stack.push(root);
         while (!stack.isEmpty() || curr != null) {
             if (curr != null) { // going down
-                if (curr.left != null) {
-                    stack.push(curr.left);
-                }
+                stack.push(curr);
                 curr = curr.left;
             } else { // going up
                 curr = stack.pop();
                 result.add(curr.data);
-                if (curr.right != null) {
-                    stack.push(curr.right);
-                }
                 curr = curr.right;
             }
         }

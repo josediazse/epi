@@ -25,7 +25,6 @@ public class BinaryTreesTest {
     public void iterativePreOrder() {
         var expected = List.of(5, 3, 1, 2, 8, 7, 9);
         var actual = binaryTrees.iterativePreOrder(BinaryTrees.getCompleteBinaryTree());
-        System.out.println(actual);
         Assert.assertTrue(expected.equals(actual));
     }
 }
