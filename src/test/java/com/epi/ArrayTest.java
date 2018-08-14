@@ -1,6 +1,8 @@
 package com.epi;
 
 import com.google.common.primitives.Ints;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -68,5 +70,18 @@ public class ArrayTest {
         int[] nums = new int[]{2, 4, 8, 6, 9, 10};
         int[] actual = array.getSubset(nums, 2);
         assertTrue(Ints.asList(nums).containsAll(Ints.asList(actual)));
+    }
+
+    @Test
+    public void findSumPairs() {
+        List<Pair<Integer, Integer>> sumPairs = array.findSumPairs(new int[]{2, 3, 4, 5, 1, 1, 6}, 7);
+        assertEquals(List.of(new ImmutablePair(0, 3),
+                new ImmutablePair(1, 2),
+                new ImmutablePair(2, 1),
+                new ImmutablePair(3, 0),
+                new ImmutablePair(4, 6),
+                new ImmutablePair(5, 6),
+                new ImmutablePair(6, 4),
+                new ImmutablePair(6, 5)), sumPairs);
     }
 }

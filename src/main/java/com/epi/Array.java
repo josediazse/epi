@@ -1,8 +1,9 @@
 package com.epi;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.*;
 
 public class Array {
     public void evenOdd(List<Integer> a) {
@@ -104,6 +105,30 @@ public class Array {
         int[] result = new int[size];
         for (int i = 0; i < size; i++) {
             result[i] = nums[rand.nextInt(nums.length)];
+        }
+        return result;
+    }
+
+    // Find all pairs of elements whose sum is <code>sum</code>
+    public List<Pair<Integer, Integer>> findSumPairs(int [] nums, int sum) {
+        var map = new HashMap<Integer, List<Integer>>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = sum - nums[i];
+            if (map.containsKey(complement)) {
+                map.get(complement).add(i);
+            } else {
+                map.put(complement, new ArrayList<>());
+                map.get(complement).add(i);
+            }
+        }
+        var result = new ArrayList<Pair<Integer, Integer>>();
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            if (map.containsKey(num)) {
+                for (Integer j : map.get(num)) {
+                    result.add(new ImmutablePair<>(i, j));
+                }
+            }
         }
         return result;
     }
